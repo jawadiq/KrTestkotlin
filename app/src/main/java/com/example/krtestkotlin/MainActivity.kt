@@ -83,7 +83,15 @@ val retrofit:Retrofit = Retrofit.Builder().baseUrl(URL).addConverterFactory(Gson
            override fun onResponse(call: Call<Main>?, response: Response<Main>?) {
                if (response!!.isSuccessful) {
                    val abc: Main = response.body()
-                   weatherResponse.setText(abc.currently.windSpeed.toString())
+                   weatherResponse.append("wind speed "+abc.currently.windSpeed.toString())
+                   weatherResponse.append(System.getProperty("line.separator"))
+                   weatherResponse.append("Cloud Cover   " + abc.currently.cloudCover)
+                   weatherResponse.append(System.getProperty("line.separator"))
+                   weatherResponse.append(" Dew Point   " + abc.currently.dewPoint)
+                   weatherResponse.append(System.getProperty("line.separator"))
+                   weatherResponse.append(" Humidity" + abc.currently.humidity)
+                   weatherResponse.append(System.getProperty("line.separator"))
+                   weatherResponse.append(" Summary   " + abc.currently.summary)
 
                }
 
