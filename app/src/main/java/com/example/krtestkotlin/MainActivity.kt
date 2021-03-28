@@ -58,23 +58,23 @@ class MainActivity : AppCompatActivity() {
 
             return
         }else {
-//location = locationManager?.getLastKnownLocation(LocationManager.GPS_PROVIDER)!!
-//            if (location!=null){
-//                lati = location.latitude
-//                longi = location.longitude
-//
-//            }
+location = locationManager?.getLastKnownLocation(LocationManager.GPS_PROVIDER)!!
+            if (location!=null){
+                lati = location.latitude
+                longi = location.longitude
 
-//            fusedLocationClient.lastLocation
-//                .addOnSuccessListener { location ->
-//                    if (location != null) {
-//                        lati = location.latitude
-//                        longi = location.longitude
-//                        city.append(lati.toString())
-//
-//                    }
-//
-//                }
+            }
+
+            fusedLocationClient.lastLocation
+                .addOnSuccessListener { location ->
+                    if (location != null) {
+                        lati = location.latitude
+                        longi = location.longitude
+                        city.append(lati.toString())
+
+                    }
+
+                }
         }
 val retrofit:Retrofit = Retrofit.Builder().baseUrl(URL).addConverterFactory(GsonConverterFactory.create()).build()
         val service:apis = retrofit.create(apis::class.java)
